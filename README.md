@@ -1,7 +1,7 @@
 # API-examples
-https://www.youtube.com/watch?v=Pb_0b7Y5NEk
-https://www.kindsonthegenius.com/nodejs/rest-api/
-API - http://localhost:8080/getUsers
+- https://www.youtube.com/watch?v=Pb_0b7Y5NEk
+- https://www.kindsonthegenius.com/nodejs/rest-api/
+- API - http://localhost:8080/getUsers
 
 
 ![image](https://user-images.githubusercontent.com/92713632/234040868-14923741-fedf-455f-a618-d72292c43c30.png)
@@ -9,7 +9,7 @@ API - http://localhost:8080/getUsers
 
 
 Here's an example PHP function that reads data from a JSON file and returns the selected data:
-
+```php
 <?php
 function selectFromJSON($filename, $key) {
   // Read JSON file contents into a string
@@ -28,7 +28,7 @@ function selectFromJSON($filename, $key) {
   }
 }
 ?>
-
+```
 Here's how you can use this function to select data from a JSON file:
 
 php
