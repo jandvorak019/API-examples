@@ -68,6 +68,37 @@ In this example, the selectFromJSON function takes two parameters: the name of t
   ]
 }
 ```
+To test the script, you can run it in a local PHP server and send a GET request with the 'name' parameter set to "John" using a web browser or a tool like cURL. For example, the URL http://localhost/myscript.php?name=John should display the phone numbers for the person with the name "John".
+
+
+```
+<?php
+// check if 'name' parameter is set in GET request
+if (!isset($_GET['name'])) {
+    http_response_code(400);
+    die("Error: 'name' parameter is missing");
+}
+
+// get the name parameter from the GET request
+$name = $_GET['name'];
+
+// fetch the JSON data from the API endpoint
+$url = "http://localhost/person/";
+$query_params = array('name' => $name);
+$options = array('http' => array('method' => 'GET', 'content' => http_build_query($query_params)));
+$context = stream_context_create($options);
+$json = file_get_contents($url . '?' . http_build_query($query_params), false, $context);
+
+// decode the JSON data and access the 'phone_numbers' field
+$data = json_decode($json, true);
+$phone_numbers = $data['phone_numbers'];
+
+// print the phone numbers
+foreach ($phone_numbers as $phone_number) {
+    echo "{$phone_number['type']}: {$phone_number['number']}\n";
+}
+?>
+```
 
 
 
