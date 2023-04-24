@@ -73,13 +73,13 @@ In this example, the selectFromJSON function takes two parameters: the name of t
 
 Vytvoř kód: 
 
-Endpoint: http://localhost/math-api/
-Parametry:
-Předávány metodou v URL oddělené lomítkem
-operation – první parametr
-numbers – další parametry
-Příklady:
-http://localhost/math-api/sum/4.2/5/7
+- Endpoint: http://localhost/math-api/
+- Parametry:
+- Předávány metodou v URL oddělené lomítkem
+- operation – první parametr
+- numbers – další parametry
+- Příklady:
+- http://localhost/math-api/sum/4.2/5/7
 
 ```
 from flask import Flask
