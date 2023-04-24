@@ -46,6 +46,7 @@ echo $data;
 In this example, the selectFromJSON function takes two parameters: the name of the JSON file and the key to select. The function reads the JSON file contents into a string, decodes the JSON string into a PHP array, and checks if the selected key exists in the array. If the key is found, the function returns the corresponding data. If the key is not found, the function returns an error message.
 ?>
 ```
+
 ```
 {
   "name": "John",
