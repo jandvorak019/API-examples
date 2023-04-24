@@ -103,4 +103,9 @@ if __name__ == '__main__':
 ``` 
    
     
- Zde je kód v jazyce Python s použitím frameworku Flask pro vytvoření webového API s jedním endpointem na adrese http://localhost/math-api/. Endpoint umožňuje provést matematickou operaci na zadaných číslech. K dispozici jsou tři operace: součet (sum), rozdíl (diff) a násobení (mult).
+Kód v jazyce Python s použitím frameworku Flask pro vytvoření webového API s jedním endpointem na adrese http://localhost/math-api/. Endpoint umožňuje provést matematickou operaci na zadaných číslech. K dispozici jsou tři operace: součet (sum), rozdíl (diff) a násobení (mult). 
+
+Dotazy:  
+- http://localhost/math-api/sum/4.2/5/7
+- http://localhost/math-api/diff/10/3.5
+- http://localhost/math-api/mult/2/3.3/4.5
