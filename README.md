@@ -164,3 +164,61 @@ if __name__ == '__main__':
    
     
 Kód v jazyce Python s použitím frameworku Flask pro vytvoření webového API s jedním endpointem na adrese http://localhost/math-api/. Endpoint umožňuje provést matematickou operaci na zadaných číslech. K dispozici jsou tři operace: součet (sum), rozdíl (diff) a násobení (mult). 
+
+## 3. Vytvoř kód: 
+(URL, POST data jako JSON)
+Endpoint: http://localhost/math-api/
+Parametry:
+operation – první parametr za endpointem
+POST JSON:
+numbers – vstupní čísla pro danou operaci oddělená čárkou bez mezer
+dttm – aktuální datum a čas ve formátu YYYY-MM-DD HH:MM:SS
+Příklady dotazu:
+http://localhost/math-api/sum
+V POSTU k tomu pošlu:{numbers:[1,2,3], dttm:”2022-12-07 10:15:00”}
+Příklad odpovědi serveru:
+{"report":"OK","result":6}
+
+
+```
+<?php
+
+// Zkontrolujeme, zda požadavek je metodou POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Načteme data z POST JSON
+    $input = json_decode(file_get_contents('php://input'), true);
+
+    // Zkontrolujeme, zda jsou k dispozici potřebné parametry
+    if (!isset($input['numbers'], $input['dttm'])) {
+        http_response_code(400); // Chybný požadavek
+        echo json_encode(array('report' => 'Error', 'message' => 'Chybějící parametry'));
+        exit;
+    }
+
+    // Získáme typ operace z URL
+    $operation = $_GET['operation'];
+
+    // Provedeme požadovanou operaci na vstupních číslech
+    switch ($operation) {
+        case 'sum':
+            $result = array_sum($input['numbers']);
+            break;
+        case 'product':
+            $result = array_product($input['numbers']);
+            break;
+        default:
+            http_response_code(400); // Chybný požadavek
+            echo json_encode(array('report' => 'Error', 'message' => 'Neplatná operace'));
+            exit;
+    }
+
+    // Vrátíme výsledek jako JSON
+    echo json_encode(array('report' => 'OK', 'result' => $result));
+
+} else {
+    http_response_code(405); // Metoda není povolena
+    header('Allow: POST');
+    echo json_encode(array('report' => 'Error', 'message' => 'Metoda není povolena'));
+}
+```
