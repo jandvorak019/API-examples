@@ -68,3 +68,39 @@ In this example, the selectFromJSON function takes two parameters: the name of t
   ]
 }
 ```
+
+
+
+Vytvoř kód: 
+
+Endpoint: http://localhost/math-api/
+Parametry:
+Předávány metodou v URL oddělené lomítkem
+operation – první parametr
+numbers – další parametry
+Příklady:
+http://localhost/math-api/sum/4.2/5/7
+
+```
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/math-api/<operation>/<float:number1>/<float:number2>')
+def math(operation, number1, number2):
+    if operation == 'sum':
+        result = number1 + number2
+    elif operation == 'diff':
+        result = number1 - number2
+    elif operation == 'mult':
+        result = number1 * number2
+    else:
+        result = 'Invalid operation'
+    return str(result)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+``` 
+   
+    
+ Zde je kód v jazyce Python s použitím frameworku Flask pro vytvoření webového API s jedním endpointem na adrese http://localhost/math-api/. Endpoint umožňuje provést matematickou operaci na zadaných číslech. K dispozici jsou tři operace: součet (sum), rozdíl (diff) a násobení (mult).
