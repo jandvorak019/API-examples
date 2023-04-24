@@ -31,8 +31,9 @@ function selectFromJSON($filename, $key) {
 ```
 Here's how you can use this function to select data from a JSON file:
 
-php
-Copy code
+```php
+<?php
+
 // Define the JSON file and the key to select
 $filename = "data.json";
 $key = "name";
@@ -43,5 +44,7 @@ $data = selectFromJSON($filename, $key);
 // Output the selected data
 echo $data;
 In this example, the selectFromJSON function takes two parameters: the name of the JSON file and the key to select. The function reads the JSON file contents into a string, decodes the JSON string into a PHP array, and checks if the selected key exists in the array. If the key is found, the function returns the corresponding data. If the key is not found, the function returns an error message.
-
 ?>
+```
+
+
