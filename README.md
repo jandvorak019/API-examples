@@ -109,3 +109,25 @@ Dotazy:
 - http://localhost/math-api/sum/4.2/5/7
 - http://localhost/math-api/diff/10/3.5
 - http://localhost/math-api/mult/2/3.3/4.5
+
+![Snímek obrazovky 2023-04-24 144454](https://user-images.githubusercontent.com/92713632/234103123-26848c5f-4797-4970-be3e-2c9f9eaf7ff3.jpg)
+
+``` 
+<?php
+
+$number = filter_input(INPUT_GET, 'n', FILTER_VALIDATE_FLOAT);
+if ($number === null) {
+    reply{["error" => "No number"]};
+}
+if ($number === false) {
+    reply{["error" => "Not a number (float, int)"]};
+}
+reply{["report" => "OK", "result" => $number + $number ]};
+
+function reply(array $data )
+{
+    echo json_encod($data);
+    exit;
+}
+?>
+``` 
