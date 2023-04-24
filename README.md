@@ -222,3 +222,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(array('report' => 'Error', 'message' => 'Metoda není povolena'));
 }
 ```
+
+w3schools https://www.w3schools.com/php/php_ref_json.asp
