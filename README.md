@@ -7,11 +7,10 @@ API - http://localhost:8080/getUsers
 ![image](https://user-images.githubusercontent.com/92713632/234040868-14923741-fedf-455f-a618-d72292c43c30.png)
 
 
-<?php
-Sure, here's an example PHP function that reads data from a JSON file and returns the selected data:
 
-php
-Copy code
+Here's an example PHP function that reads data from a JSON file and returns the selected data:
+
+<?php
 function selectFromJSON($filename, $key) {
   // Read JSON file contents into a string
   $jsonString = file_get_contents($filename);
@@ -28,6 +27,8 @@ function selectFromJSON($filename, $key) {
     return "Key not found in JSON data";
   }
 }
+?>
+
 Here's how you can use this function to select data from a JSON file:
 
 php
